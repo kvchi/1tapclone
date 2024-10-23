@@ -77,7 +77,7 @@ export default function Header() {
 
             {/* Menu Toggle Button */}
             <div
-              className={`md:flex flex-row-reverse lg:hidden flex items-center gap-[5px] transition-all duration-500 ease-in-out ml-[80px]`}
+              className={`md:flex flex-row-reverse lg:hidden flex items-center gap-[5px] transition-all duration-500 ease-in-out ml-[60px]`}
               onClick={toggleMenu}
             >
               {menuOpen ? (

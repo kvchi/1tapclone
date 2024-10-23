@@ -69,7 +69,7 @@ export default function Home() {
   }, [controls, inView]);
 
   return (
-    <main className="container flex flex-col min-w-[1512px] mx-auto relative">
+    <main className="container flex flex-col max-w-[1512px] mx-auto relative">
       
       <section className="relative lg:mt-[200px] md:mt-[57px] flex flex-col justify-center items-center h-[250px] bg-transparent">
         <ComplianceHeading />
@@ -345,55 +345,55 @@ export default function Home() {
           </div>
         </div>
       </aside>
-      <aside className="flex flex-col lg:flex-row-reverse ml-[40px] md:ml-[150px] mt-[58px] md:mt-[80px] lg:mt-[8.9rem]  relative lg:mx-auto ">
-      <div className="block md:hidden w-[320px] h-[90px] text-center mx-auto">
-      <h2 className="font-bold text-[30px] md:text-[45px] leading-[40px] lg:leading-[60px] tracking-[-1.2px] lg:tracking-[-1px] lg:w-[596px] lg:h-[120px] ">
-              <span className="text-primary">Transparent</span> and Upfront
-              Pricing
-            </h2>
+      <aside className="flex flex-col lg:flex-row-reverse ml-[10%] md:ml-[10%] mt-[58px] md:mt-[80px] lg:mt-[8.9rem] relative lg:mx-auto">
+  <div className="block md:hidden w-full max-w-[90%] h-[90px] text-center">
+    <h2 className="font-bold text-[30px] md:text-[45px] leading-[40px] lg:leading-[60px] tracking-[-1.2px] lg:tracking-[-1px]">
+      <span className="text-primary">Transparent</span> and Upfront Pricing
+    </h2>
+  </div>
+  
+  <div className="bg-[#FFE9FE] transition-all duration-1000 ease-in-out h-[248px] md:h-[33.2rem] w-full max-w-[90%] md:max-w-[70%] rounded-[30px] relative md:-ml-[5%] lg:ml-0 mt-[24px]">
+    <img
+      src={dashboard5}
+      alt=""
+      className="absolute left-[15px] md:left-0 top-[20px] md:top-[60px] rounded-2xl w-full max-w-[90%] md:max-w-[95%]"
+    />
+    <div className="absolute ml-[15%] md:ml-[18%] top-[30px] md:top-[118px]">
+      <img
+        src={business}
+        alt=""
+        className="mt-[30px] w-full max-w-[60%] md:max-w-[55%]"
+      />
+    </div>
+  </div>
+
+  <div className="flex flex-col ml-4 md:items-center lg:items-start mt-[20px] md:mt-[77px] lg:mt-[180px]">
+    <div className="w-full max-w-[90%] h-[90px] ml-[20%] md:ml-0">
+      <h2 className="font-bold text-[30px] md:text-[45px] leading-[40px] lg:leading-[60px] tracking-[-1.2px] lg:tracking-[-1px] hidden md:block">
+        <span className="text-primary">Transparent</span> and Upfront Pricing
+      </h2>
+
+      <div className="lg:max-w-[80%] md:max-w-[85%] w-full">
+        <p className="mt-4 md:mt-[1rem] md:text-[16px] lg:text-[18px] font-normal leading-[24px] md:leading-[28px] text-center lg:text-start">
+          We prioritize transparency. All costs, including government fees and service charges, are clearly displayed upfront. With 1Tap, there are no hidden fees, giving you complete peace of mind as you start your business.
+        </p>
       </div>
-        <div className="bg-[#FFE9FE] transition-all duration-1000 ease-in-out h-[248px] md:h-[33.2rem] w-[329px] md:w-[705px] rounded-[30px] relative mx-auto md:-ml-[20px] lg:ml-0 mt-[24px]">
+
+      <div className="mt-[30px] mx-auto md:ml-[20%] lg:ml-0">
+        <button className="group relative w-[50%] max-w-[200px] h-[53px] bg-white rounded-[10px] text-black border-[3px] border-black hover:border-white font-medium flex items-center justify-center gap-[8px] overflow-hidden group hover:text-white transition-all duration-300 ease-linear">
+          <span className="relative z-10">Check Packages</span>
           <img
-            src={dashboard5}
+            src={arrow1}
             alt=""
-            className="absolute left-[15px] md:left-0 top-[20px] md:top-[60px] rounded-2xl w-[293px] md:w-[686px]"
+            className="relative z-10 filter group-hover:invert"
           />
-          <div className="absolute ml-[60px] md:ml-[124px] top-[30px] md:top-[118px]">
-            <img
-              src={business}
-              alt=""
-              className="mt-[30px] w-[187px] md:w-[409px]"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col ml-4 md:items-center lg:items-start mt-[20px] md:mt-[77px] lg:mt-[180px] ">
-          <div className="w-[320px] md:w-full h-[90px] ml-[100px] md:ml-0">
-            <h2 className="font-bold text-[30px] md:text-[45px] leading-[40px] lg:leading-[60px] tracking-[-1.2px] lg:tracking-[-1px] lg:w-[596px] lg:h-[120px] hidden md:block">
-              <span className="text-primary">Transparent</span> and Upfront
-              Pricing
-            </h2>
-            <div className="lg:w-[552px] md:w-[550px] w-[329px] -mx-[65px] md:ml-[60px] lg:mx-0">
-              <p className="mt-4 md:mt-[1rem] md:text-[16px] lg:text-[18px] font-normal leading-[24px] md:leading-[28px] text-center lg:text-start">
-                We prioritize transparency.All costs,including government fees
-                and service charges, are clearly displayed upfront. With
-                1Tap,there areno hidden fees,giving you complete peace of mind
-                as you start your business.
-              </p>
-            </div>
-            <div className="mt-[30px] mx-auto md:flex md:items-center ml- md:ml-[230px] lg:justify-start">
-              <button className="group relative w-[182px] md:w-[192px] h-[53px] bg-white rounded-[10px] text-black border-[3px] border-black  hover:border-white font-medium flex items-center justify-center gap-[8px] overflow-hidden group hover:text-white transition-all duration-300 ease-linear">
-                <span className="relative z-10">Check Packages</span>
-                <img
-                  src={arrow1}
-                  alt=""
-                  className="relative z-10 filter group-hover:invert "
-                />
-                <span className="absolute inset-0 bg-primary transition-transform duration-500 ease-out scale-0 group-hover:scale-150 origin-center rounded-[50%] z-0 opacity-20 group-hover:opacity-100 h-28 w-36 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </aside>
+          <span className="absolute inset-0 bg-primary transition-transform duration-500 ease-out scale-0 group-hover:scale-150 origin-center rounded-[50%] z-0 opacity-20 group-hover:opacity-100 h-28 w-36 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</aside>
+
       <section className="relative mt-[30px] md:mt-0">
         <Man />
       </section>
