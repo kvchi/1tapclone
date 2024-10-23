@@ -380,7 +380,7 @@ export default function Home() {
                 as you start your business.
               </p>
             </div>
-            <div className="mt-[30px]  -ml-[40px] md:text-center md:ml-[2000px] lg:ml-0.5">
+            <div className="mt-[30px]  -ml-[40px] md:text-center md:ml-[200px] lg:ml-0.5">
               <button className="group relative w-[182px] md:w-[192px] h-[53px] bg-white rounded-[10px] text-black border-[3px] border-black  hover:border-white font-medium flex items-center justify-center gap-[8px] overflow-hidden group hover:text-white transition-all duration-300 ease-linear">
                 <span className="relative z-10">Check Packages</span>
                 <img
