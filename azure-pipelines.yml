@@ -1,0 +1,78 @@
+# Docker
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+pr: none
+trigger:
+  tags:
+    include:
+    - '*'
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: 'f9cdf6ba-cef7-4168-8a4c-95ea38580e5b'
+  websiteImageRepository: '1tap-website'
+  strapiImageRepository: '1tap-strapi'
+  containerRegistry: '1tapwebapp.azurecr.io'
+  websiteDockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  strapiDockerfilePath: '$(Build.SourcesDirectory)/strapi/Dockerfile'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build and push website and strapi images
+  jobs:
+  - job: ValidateTag
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - script: |
+          echo "## Validating the tag format..."
+          if [[ "$(Build.SourceBranchName)" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-(0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$ ]]; then
+            echo "Tag is valid: $(Build.SourceBranchName)"
+            echo "##vso[task.setvariable variable=IsValidTag;isoutput=true]true"
+          else
+            echo "Tag does not follow semantic versioning: $(Build.SourceBranchName)"
+            echo "##vso[task.setvariable variable=IsValidTag;isoutput=true]false"
+          fi
+        name: validateTag
+        displayName: 'Validate Tag Format'
+
+  - job: BuildWebsiteImage
+    displayName: Build Website Image
+    dependsOn: ValidateTag
+    variables:
+      IsValidTag: $[ dependencies.ValidateTag.outputs['validateTag.IsValidTag'] ]
+    condition: eq(variables['IsValidTag'], 'true')
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(websiteImageRepository)
+        dockerfile: $(websiteDockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(Build.SourceBranchName)
+
+  - job: BuildStrapiImage
+    displayName: Build Strapi Image
+    dependsOn: ValidateTag
+    variables:
+      IsValidTag: $[ dependencies.ValidateTag.outputs['validateTag.IsValidTag'] ]
+    condition: eq(variables['IsValidTag'], 'true')
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(strapiImageRepository)
+        dockerfile: $(strapiDockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(Build.SourceBranchName)

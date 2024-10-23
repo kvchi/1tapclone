@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #FEFEFE; /* Light gray background */
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  overflow-x: hidden;
+}
+
+
+
+
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+/* Add to your global CSS file or a new CSS module */
+.gradient-text {
+  background: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.custom-fade-slide-up {
+  animation: fade-slide-up 1s ease-out; /* Adjust duration and easing */
+}
+
+.learn_btn .btn_effect{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 5s;
+  z-index: -1;
+}
+
+.learn_btn:hover .btn_effect {
+  background: #2E95F4;
+  transform: translate(-50%, -50%) scale(150);
+  transition-timing-function: ease-in-out;
+}
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+.opacity-20 {
+  opacity: 0.2;
+}
+
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+  gap: 20px; /* Space between slides */
+  will-change: transform;
+  animation: scroll 10s linear infinite;
+  width: 100%;
+  animation-play-state: running; /* Default state for running animation */
+}
+
+/* Pause the animation when hovered */
+.embla:hover .embla__container {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform:  translateX(0);
+}
+
+100% {
+  transform: translateX(-100%);
+}
+}
+
+.arrow-image {
+  transition: height 1s ease-in-out; /* Animation for height */
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .custom-img {
+    width: 480px; /* Adjust width for medium screens */
+  }
+}
+
+/* Markdown_Css */
+@layer base {
+  h1 {
+      @apply text-5xl;
+      @apply font-medium;
+
+  }
+  
+  h2 {
+      @apply text-4xl;
+      @apply font-medium;
+
+  }
+
+  h3 {
+      @apply text-3xl;
+      @apply font-medium;
+
+  }
+
+  h4 {
+      @apply text-2xl;
+      @apply font-medium;
+
+  }
+
+  
+}
+
+@layer base {
+
+  ul,
+  ol {
+      list-style: revert;
+      margin-left: 20px;
+  }
+}
+
+.line-break {
+  white-space: pre-wrap;
+}
+
+.hide-scrollbar {
+  overflow: hidden; /* Prevents overflow */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Optional: Hides scrollbar for IE */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}

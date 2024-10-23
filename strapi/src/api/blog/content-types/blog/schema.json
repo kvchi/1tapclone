@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blogs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blogTitle": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "blogDesc": {
+      "type": "string",
+      "required": true
+    },
+    "coverImg": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "authorName": {
+      "type": "string",
+      "required": true
+    },
+    "authorImg": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "authorDesc": {
+      "type": "string",
+      "required": true
+    },
+    "blogContent": {
+      "type": "richtext",
+      "required": true
+    },
+    "topic": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::topic.topic"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  }
+}
