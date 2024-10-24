@@ -28,19 +28,19 @@ export default function Header() {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 lg:max-w-[1512px] md:max-w-[1024px] h-[88px] px-4 bg-white flex items-center justify-between mx-auto`}
+      className={`fixed top-0 left-0 right-0 z-50 h-[88px] bg-white flex items-center justify-between mx-auto max-w-[1024px] lg:max-w-[1512px] pl-4 lg:pl-10 lg:pr-8`}
     >
       {/* Logo Container */}
       <div className="flex-shrink-0 flex justify-center items-center">
         <Link to="/" onClick={handleLogoClick}>
-          <img src={logo} alt="Logo" className="scale-110 w-[104px] h-[24px] lg:ml-[139px] md:ml-[62px]" />
+          <img src={logo} alt="Logo" className="scale-110 w-[104px] h-[24px] " />
         </Link>
       </div>
 
       {/* Sliding Menu Items */}
-      <div className="flex-1 flex justify-center items-center ">
+      <div className=" flex justify-between items-center ">
         <div className="flex items-center ">
-          <div className={`space-x-7 lg:pl-[362px] md:pl-[93px] hidden lg:block`}>
+          <div className={`space-x-7  hidden lg:block`}>
             {firstFourItems.map((item) => (
               <Link
                 key={item.id}
@@ -53,8 +53,10 @@ export default function Header() {
               </Link>
             ))}
           </div>
-          <div className="hidden md:flex items-center gap-[24px] md:pl-[450px] lg:pl-[245px] ">
-            {lastTwoItems.map((item, el) => (
+        </div>
+      </div>
+          <div className=" flex items-center gap-[24px] ">
+            <div className="flex items-center gap-[24px] max-md:hidden">{lastTwoItems.map((item, el) => (
               <Link
                 key={item.id}
                 to={item.url}
@@ -70,14 +72,12 @@ export default function Header() {
                   <div className="absolute inset-0 bg-black rounded-[50%] group-hover:rounded-[50%] transition-transform duration-700 ease-out group-hover:scale-150 scale-0 bg-opacity-10 group-hover:bg-opacity-100 animate-fadeToBlack h-28 w-36 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                 )}
               </Link>
-            ))}
-          </div>
-          <div className="ml-[150px] md:ml-[31px] lg:ml-[52px] flex items-center">
+            ))}</div>
+          <div className=" flex items-center">
             <img src={sun} alt="" className="bg-[#DDEFFF] p-3 rounded-full w-[48px] h-[48px] hidden lg:block" />
-
-            {/* Menu Toggle Button */}
+          </div>
             <div
-              className={`md:flex flex-row-reverse lg:hidden flex items-center gap-[5px] transition-all duration-500 ease-in-out ml-[60px]`}
+              className={`md:flex lg:hidden flex-row-reverse  flex items-center gap-[5px] transition-all duration-500 ease-in-out `}
               onClick={toggleMenu}
             >
               {menuOpen ? (
@@ -92,8 +92,7 @@ export default function Header() {
                 </>
               )}
             </div>
-
-            {/* Dropdown Menu List */}
+             {/* Dropdown Menu List */}
             <div
               className={`absolute top-[80px] left-0 right-0 bg-white w-full shadow-lg z-10 overflow-hidden transition-all duration-500 p-5 ease-in-out lg:hidden block ${
                 menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
@@ -114,8 +113,8 @@ export default function Header() {
               ))}
             </div>
           </div>
-        </div>
-      </div>
+
+            {/* Menu Toggle Button */}
     </div>
   );
 }

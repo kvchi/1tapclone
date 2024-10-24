@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <footer className='bg-[#f3f3f3] flex mt-[117px] mx-auto max-w-[1555px]'>
+      <div className="max-w-[1024px] lg:max-w-[1512px] relative">
       <div className="fixed z-50 right-[5px] transform bottom-[30px] mr-[30px] mx-auto hidden lg:block">
         <img
           src={chatbot}
@@ -45,6 +46,7 @@ export default function Footer() {
         <img src={instagram} alt="" className=''/>
     </div>
     </aside>
+      </div>
   </footer>
   
   );

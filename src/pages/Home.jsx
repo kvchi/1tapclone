@@ -287,15 +287,15 @@ export default function Home() {
       <div>
         <HorizontalScroll />
       </div>
-      <aside className="flex flex-col gap-6 md:gap-[3.8rem]  md:mt-5 lg:flex-row lg:mt-[120px]  md:ml-[180px] lg:ml-[87px] lg:mx-auto relative">
+      <aside className="flex flex-col gap-6 md:gap-[3.8rem]  md:mt-5 lg:flex-row lg:mt-[120px] mx-auto relative px-8">
       <div className="w-[365px] md:w-[707px] text-center mx-auto lg:text-start block md:hidden">
             <h2 className="font-bold text-[30px] md:text-[48px] lg:text-[45px] leading-[45px] lg:leading-[60px] lg:tracking-[-1px]">
               <span className="text-primary">One-stop</span> Digital Experience.
             </h2>
           </div>
         {/* Div containing text */}
-        <div className="flex flex-col md:items-center lg:items-start lg:mt-[200px] md:mt-[50px] md:mr-[150px] order-4 md:order-2 ">
-          <div className="w-[365px] md:w-[707px] text-center mx-auto lg:text-start hidden md:block">
+        <div className="flex flex-col justify-end  md:items-center lg:items-start order-4 md:order-2 ">
+          <div className="max-w-[1024px] text-center mx-auto lg:text-start hidden md:block">
             <h2 className="font-bold text-[30px] md:text-[48px] lg:text-[45px] leading-[45px] lg:leading-[60px] lg:tracking-[-1px]">
               <span className="text-primary">One-stop</span> Digital Experience.
             </h2>
@@ -325,12 +325,14 @@ export default function Home() {
         </div>
 
         {/* Div containing image */}
-        <div className="bg-[#E8F4FF] h-[280px] md:h-[33.2rem] w-[330px]  md:w-[44.1rem] mx-auto md:-mx-[40px] lg:-mx-0  rounded-[30px] relative">
+        <div className="bg-[#E8F4FF] h-[280px] md:h-[33.2rem] w-[330px]  md:w-[44rem] mx-auto md:-mx-[40px] lg:-mx-0  rounded-[30px] relative ">
+
           <img
             src={dashboard4}
             alt=""
-            className="absolute top-[30px] left-[15px] md:top-[20px] lg:top-[35px] md:left-[57px] lg:left-[80px] rounded-2xl w-[300px] md:w-[650px] lg:w-[630px]"
+            className="absolute top-[30px] left-[15px] md:top-[20px] lg:top-14 md:left-[57px] lg:left-[80px] rounded-2xl w-[300px] md:w-[650px] lg:w-[625px]"
           />
+          
           <div className="flex absolute -bottom-[30px] md:-bottom-[70px] lg:-bottom-[67px] ml-[45px] md:ml-[105px]">
             <img
               src={vat}
